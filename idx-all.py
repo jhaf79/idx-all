@@ -155,7 +155,7 @@ idx_tickers = [
 st.sidebar.header("Filter Strategi")
 auto_scan = st.sidebar.toggle("Aktifkan Auto-Scan", value=True)
 rsi_oversold = st.sidebar.slider("Batas RSI Oversold", 20, 40, 30)
-min_score = st.sidebar.slider("Minimal Skor", 0, 100, 70)
+min_score = st.sidebar.slider("Minimal Skor", 0, 100, 50)
 interval = st.sidebar.select_slider("Interval Refresh", options=[5, 10, 15, 30], value=10)
 
 def run_screener():
@@ -200,11 +200,11 @@ def run_screener():
                         
                         # 3. Skor Volume (Max 20 pts)
                         vol_ratio = last['volume'] / last['Vol_Avg'] if last['Vol_Avg'] > 0 else 0
-                        if vol_ratio > 1.5: score += 20
-                        elif vol_ratio > 1.0: score += 10
+                        if vol_ratio > 2: score += 20
+                        elif vol_ratio > 1.5: score += 10
 
                         # Status
-                        status = "🔥 BUY ZONE" if score >= 65 else "📊 WATCHLIST" if score >= 40 else "⌛ NEUTRAL"
+                        status = "🔥 BUY ZONE" if score >= 70 else "📊 WATCHLIST" if score >= 50 else "⌛ NEUTRAL"
                         
                         results.append({
                             "Ticker": ticker.replace(".JK", ""),
