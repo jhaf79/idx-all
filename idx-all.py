@@ -155,7 +155,7 @@ idx_tickers = [
 st.sidebar.header("Filter Strategi")
 auto_scan = st.sidebar.toggle("Aktifkan Auto-Scan", value=True)
 rsi_oversold = st.sidebar.slider("Batas RSI Oversold", 20, 40, 30)
-min_score = st.sidebar.slider("Minimal Skor", 0, 100, 40)
+min_score = st.sidebar.slider("Minimal Skor", 0, 100, 70)
 interval = st.sidebar.select_slider("Interval Refresh", options=[5, 10, 15, 30], value=10)
 
 def run_screener():
